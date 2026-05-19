@@ -22,7 +22,13 @@ The project was created as a continuation of the previous Weather Simulator proj
 
 # Dashboard Preview
 
-![Weather Dashboard](assets/Dashboard.png)
+## Dashboard
+
+![Dashboard](assets/Dashboard.png)
+
+## Temperature Chart
+
+![Temperature Chart](assets/Chart.png)
 
 ---
 # Features
