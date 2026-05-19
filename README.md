@@ -7,7 +7,7 @@ The application allows the user to:
 - display temperature or wind speed data
 - visualize weather data in charts
 - calculate average values
-- display additional country information using REST Countries API
+- display additional country information from the REST Countries API
 
 The project was created as a continuation of the previous Weather Simulator project and focuses on:
 - software architecture
@@ -20,10 +20,15 @@ The project was created as a continuation of the previous Weather Simulator proj
 
 ---
 
+# Dashboard Preview
+
+![Weather Dashboard](assets/Dashboard.png)
+
+---
 # Features
 
 ## Weather Forecast
-The dashboard fetches real weather data from Open-Meteo API:
+The dashboard fetches real weather data from the Open-Meteo API:
 - temperature
 - wind speed
 - time/date
@@ -45,7 +50,7 @@ Charts are created using matplotlib.
 ---
 
 ## Country Information
-Additional information about Latvia is fetched using REST Countries API:
+Additional information about Latvia is fetched using the REST Countries API:
 - country name
 - capital city
 - region
@@ -69,6 +74,8 @@ Additional information about Latvia is fetched using REST Countries API:
 ```text
 Weather_Dashboard/
 │
+├── assets/
+│   └── Dashboard.png
 ├── app.py
 ├── api_client.py
 ├── models.py
@@ -82,6 +89,7 @@ Weather_Dashboard/
 ---
 
 # File Descriptions
+
 ## app.py
 
 Handles:
@@ -198,9 +206,48 @@ https://restcountries.com/
 
 ---
 
+# Testing
+
+The project contains 12 pytest tests.
+
+Tests cover:
+
+- API data processing
+- average calculations
+- Strategy Pattern selection
+- invalid chart types
+- error handling
+- empty data situations
+
+Run tests:
+```bash
+pytest tests.py -v
+```
+
+---
+
+# Software Engineering Concepts
+
+The project also includes:
+
+- debugging
+- refactoring
+- legacy code analysis
+- software architecture analysis
+- testing with pytest
+
+Several improvements were made during refactoring:
+
+- limiting weather data to 24 hours
+- improving chart readability
+- separating responsibilities into modules
+- moving chart strategy selection outside app.py
+
+---
+
 # Installation
 
-1. Clone repository
+## 1. Clone repository
 
 ```bash
 git clone https://github.com/Andris-Murans/Weather-Dashboard.git
@@ -208,7 +255,7 @@ git clone https://github.com/Andris-Murans/Weather-Dashboard.git
 
 ---
 
-2. Create virtual environment
+## 2. Create virtual environment
 
 ```bash
 python -m venv venv
@@ -216,7 +263,7 @@ python -m venv venv
 
 ---
 
-3. Activate virtual environment
+## 3. Activate virtual environment
 
 Windows
 
@@ -232,7 +279,7 @@ source venv/bin/activate
 
 ---
 
-4. Install dependencies
+## 4. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -264,6 +311,19 @@ pytest tests.py -v
 - average wind speed calculation
 - country information display
 - API error handling
+
+---
+
+# Future Improvements
+
+Possible future improvements:
+
+- manual city search
+- additional weather data types
+- database integration
+- forecast comparison
+- more chart types
+- automatic city geolocation
 
 ---
 
