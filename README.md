@@ -81,7 +81,8 @@ Additional information about Latvia is fetched using the REST Countries API:
 Weather_Dashboard/
 │
 ├── assets/
-│   └── Dashboard.png
+│   ├── Dashboard.png
+│   └── Chart.png
 ├── app.py
 ├── api_client.py
 ├── models.py
