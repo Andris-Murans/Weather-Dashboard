@@ -1,5 +1,12 @@
+import pytest
+
 from api_client import WeatherDataClient
 from models import WeatherData
+from chart_strategy import (
+    TemperatureChartStrategy,
+    WindChartStrategy,
+    get_chart_strategy
+)
 
 
 # TEST 1
@@ -95,12 +102,6 @@ def test_weather_data_length():
 
     assert len(weather.time_data) == 24
 
-from chart_strategy import (
-    TemperatureChartStrategy,
-    WindChartStrategy,
-    get_chart_strategy
-)
-
 
 # TEST 7
 # Check if Temperature strategy is selected
@@ -137,15 +138,14 @@ def test_wind_strategy_selection():
 
 def test_invalid_chart_type():
 
-    try:
+    with pytest.raises(
+        ValueError,
+        match="Unknown chart type"
+    ):
 
         get_chart_strategy(
             "Humidity"
         )
-
-    except ValueError as error:
-
-        assert str(error) == "Unknown chart type"
 
 
 # TEST 10
@@ -175,21 +175,16 @@ def test_empty_temperature_list():
 
     weather = WeatherData(
         city="Test City",
-
         time_data=[],
-
         temperature_data=[],
-
         wind_speed_data=[]
     )
 
-    try:
+    with pytest.raises(ZeroDivisionError):
 
         weather.average_temperature()
 
-    except ZeroDivisionError:
 
-        assert True
 # TEST 12
 # Check REST Countries API
 
